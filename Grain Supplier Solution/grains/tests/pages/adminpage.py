@@ -1,50 +1,90 @@
-from lib2to3.pgen2 import driver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from .basepage import BasePage
 
 class AdminPage(BasePage):
-    #admin page methods
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
 
-        #admin page elements
-        logo = self.driver.find_element_by_css_selector('a[href="/admin/"]')
+    #admin page elements
+    def logo(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/"]')
 
-        viewSiteLink =self.driver.find_element_by_css_selector('a[href="/"]')
-        changePasswordLink = self.driver.find_element_by_css_selector('a[href="/admin/password_change/"]')
-        logOutLink = self.driver.find_element_by_css_selector('a[href="/admin/logout/"]')
+    def viewSiteLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/"]')
         
-        authenticationAndAuthorizationHeader = self.driver.find_element_by_css_selector('a[href="/admin/auth/"]')
-        groupsLink = self.driver.find_element_by_css_selector('a[href="/admin/auth/group/"]')
-        addGroupsLink = self.driver.find_element_by_css_selector('a[href="/admin/auth/group/add/"]')
-        changeGroupsLink = self.driver.find_element_by_css_selector('a[href="/admin/auth/group/"][class="changelink"]')
+    def changePasswordLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/password_change/"]')
         
-        coreHeader = self.driver.find_element_by_css_selector('a[href="/admin/core/"]')
-        usersLink = self.driver.find_element_by_css_selector('a[href="/admin/core/user/"]')
-        addUsersLink = self.driver.find_element_by_css_selector('a[href="/admin/core/user/add/"]')
-        changeUsersLink = self.driver.find_element_by_css_selector('a[href="/admin/core/user/"][class="changelink"]')
+    def logOutLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/logout/"]')
         
-        grainsHeader = self.driver.find_element_by_css_selector('a[href="/admin/grains/"]')
-        grainsUserProfilesLink = self.driver.find_element_by_css_selector('a[href="/admin/grains/grainsuserprofile/"]')
-        addGrainsUserProfilesLink = self.driver.find_element_by_css_selector('a[href="/admin/grains/grainsuserprofile/add/"]')
-        changeGrainsUserProfulesLink = self.driver.find_element_by_css_selector('a[href="/admin/grains/grainsuserprofile/"][class="changelink"]')
-        ordersLink = self.driver.find_element_by_css_selector('a[href="/admin/grains/order/"]')
-        addOrdersLink = self.driver.find_element_by_css_selector('a[href="/admin/grains/order/add/"]')
-        changeOrdersLink = self.driver.find_element_by_css_selector('a[href="/admin/grains/order/"][class="changelink"]')
-        suppliersLink = self.driver.find_element_by_css_selector('a[href="/admin/grains/supplier/"]')
-        addSuppliersLink = self.driver.find_element_by_css_selector('a[href="/admin/grains/supplier/add/"]')
-        changeSuppliersLink = self.driver.find_element_by_css_selector('a[href="/admin/grains/supplier/"][class="changelink"]')
+    def authenticationAndAuthorizationHeader(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/auth/"]')
+    
+    def groupsLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/auth/group/"]')
+        
+    def addGroupsLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/auth/group/add/"]')
+        
+    def changeGroupsLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/auth/group/"][class="changelink"]')
+        
+    def coreHeader(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/core/"]')
+        
+    def usersLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/core/user/"]')
+        
+    def addUsersLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/core/user/add/"]')
+        
+    def changeUsersLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/core/user/"][class="changelink"]')
+        
+    def grainsHeader(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/grains/"]')
+        
+    def grainsUserProfilesLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/grains/grainsuserprofile/"]')
+        
+    def addGrainsUserProfilesLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/grains/grainsuserprofile/add/"]')
+        
+    def changeGrainsUserProfulesLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/grains/grainsuserprofile/"][class="changelink"]')
+        
+    def ordersLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/grains/order/"]')
+        
+    def addOrdersLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/grains/order/add/"]')
+        
+    def changeOrdersLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/grains/order/"][class="changelink"]')
+        
+    def suppliersLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/grains/supplier/"]')
+        
+    def addSuppliersLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/grains/supplier/add/"]')
+        
+    def changeSuppliersLink(self):
+        return self.driver.find_element_by_css_selector('a[href="/admin/grains/supplier/"][class="changelink"]')
 
-        listOfElementsInOrder = [logo, viewSiteLink, changePasswordLink, logOutLink, authenticationAndAuthorizationHeader, groupsLink, addGroupsLink, changeGroupsLink, coreHeader, usersLink, addUsersLink, changeUsersLink, grainsHeader, grainsUserProfilesLink, addGrainsUserProfilesLink, changeGrainsUserProfulesLink, ordersLink, addOrdersLink, changeOrdersLink, suppliersLink, addSuppliersLink, changeSuppliersLink]
+    # listOfElementsInOrder = [logo(), viewSiteLink(), changePasswordLink(), logOutLink(), authenticationAndAuthorizationHeader(), groupsLink(), addGroupsLink(), changeGroupsLink(), coreHeader(), usersLink(), addUsersLink(), changeUsersLink(), grainsHeader(), grainsUserProfilesLink(), addGrainsUserProfilesLink(), changeGrainsUserProfulesLink(), ordersLink(), addOrdersLink(), changeOrdersLink(), suppliersLink(), addSuppliersLink(), changeSuppliersLink()]
+
+    #admin page methods
+    def listOfElementsInOrder(self):
+        return [AdminPage.logo(self), AdminPage.viewSiteLink(self), AdminPage.changePasswordLink(self), AdminPage.logOutLink(self), AdminPage.authenticationAndAuthorizationHeader(self), AdminPage.groupsLink(self), AdminPage.addGroupsLink(self), AdminPage.changeGroupsLink(self), AdminPage.coreHeader(self), AdminPage.usersLink(self), AdminPage.addUsersLink(self), AdminPage.changeUsersLink(self), AdminPage.grainsHeader(self), AdminPage.grainsUserProfilesLink(self), AdminPage.addGrainsUserProfilesLink(self), AdminPage.changeGrainsUserProfulesLink(self), AdminPage.ordersLink(self), AdminPage.addOrdersLink(self), AdminPage.changeOrdersLink(self), AdminPage.suppliersLink(self), AdminPage.addSuppliersLink(self), AdminPage.changeSuppliersLink(self)]
     
 
-    def checkTabOrder():
-        actions = ActionChains()
+    def checkTabOrder(self):
+        actions = ActionChains(self.driver)
         actions.send_keys(Keys.TAB)
     
-        for i in range(len(AdminPage.listOfElementsInOrder)):
+        for i in range(len(AdminPage.listOfElementsInOrder(self))):
             actions.perform()
-            assert BasePage.getCurrentlySelectedElement() == AdminPage.listOfElementsInOrder[i]
+            assert BasePage.getCurrentlySelectedElement(self) == AdminPage.listOfElementsInOrder(self)[i]
